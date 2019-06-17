@@ -18,7 +18,7 @@ To run the application, build application with
 
 The execute with
 
-	./go-rest-api
+	go run ./go-rest-api
 
 From a Browser try this URL
 
