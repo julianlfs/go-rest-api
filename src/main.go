@@ -1,12 +1,12 @@
-package main
+package src
 
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"github.com/gorilla/mux"
 )
 
 // People - Estrutura para Pessoa
