@@ -1,4 +1,4 @@
-package src
+package go_rest_api
 
 import (
 	"encoding/json"
