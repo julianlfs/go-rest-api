@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 )
 
 // People - Estrutura para Pessoa
@@ -64,19 +65,23 @@ func deleteArticle(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func handleRequests() {
+func handleRequests(port string) {
+
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/", homePage)
 	myRouter.HandleFunc("/peoples", returnAllArticles)
 	myRouter.HandleFunc("/people", createNewArticle).Methods("POST")
 	myRouter.HandleFunc("/people/{id}", deleteArticle).Methods("DELETE")
 	myRouter.HandleFunc("/people/{id}", returnSingleArticle)
-	log.Fatal(http.ListenAndServe(":10000", myRouter))
+	log.Fatal(http.ListenAndServe(":"+port, myRouter))
 }
 
 func main() {
+
+	port := os.Getenv("PORT")
+
 	Peoples = []People{
 		People{ID: "1", Name: "Willian Kaminski"},
 	}
-	handleRequests()
+	handleRequests(port)
 }
