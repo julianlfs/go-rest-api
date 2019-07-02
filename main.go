@@ -1,4 +1,4 @@
-package go_rest_api
+package main
 
 import (
 	"encoding/json"
@@ -79,6 +79,7 @@ func handleRequests(port string) {
 func main() {
 
 	port := os.Getenv("PORT")
+	fmt.Printf("porta.....:" + port)
 
 	Peoples = []People{
 		People{ID: "1", Name: "Willian Kaminski"},
